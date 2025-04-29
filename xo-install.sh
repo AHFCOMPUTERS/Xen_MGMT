@@ -2,9 +2,9 @@
 # shellcheck disable=SC2155,SC2207,SC2015
 
 #########################################################################
-# Title: XenOrchestraInstallerUpdater                                   #
-# Author: Roni Väyrynen                                                 #
-# Repository: https://github.com/ronivay/XenOrchestraInstallerUpdater   #
+# Title: Xen Installer and Updater Script                               #
+# Author:                                                               #
+# Repository: https://github.com/AHFCOMPUTERS                           #
 #########################################################################
 
 SCRIPT_DIR="$(dirname "$0")"
@@ -105,7 +105,7 @@ function SelfUpgrade {
 
     if [[ -d "$SCRIPT_DIR/.git" ]] && [[ -n $(runcmd_stdout "command -v git") ]]; then
         local REMOTE="$(runcmd_stdout "cd $SCRIPT_DIR && git config --get remote.origin.url")"
-        if [[ "$REMOTE" == *"ronivay/XenOrchestraInstallerUpdater"* ]]; then
+        if [[ "$REMOTE" == *"AHFCOMPUTERS/Xen_MGMT"* ]]; then
             if [[ -n $(runcmd_stdout "cd $SCRIPT_DIR && git status --porcelain") ]]; then
                 printfail "Local changes in this script directory. Not attempting to self upgrade"
                 return 0
